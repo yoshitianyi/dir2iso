@@ -1,8 +1,7 @@
 #!/bin/bash
-
-# $1: target root dir
-# $2: volume name
-# $3: publisher name
+SRCDIR=$1    # source dir
+VOLNAME="$2" # volume name
+PUBNAME="$3" # publisher name
 
 # https://stackoverflow.com/questions/1378274/in-a-bash-script-how-can-i-exit-the-entire-script-if-a-certain-condition-occurs/25515370#25515370
 yell() { echo "💥$0: $*" >&2; }
@@ -15,8 +14,10 @@ IFS='' read -r -d '' LOGO <<"EOF"
 ░█░█░░█░░█▀▄░▄▀░░░█░░▀▀█░█░█
 ░▀▀░░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀▀▀
 EOF
-
-# TODO: parameter verification
-
 echo "$LOGO"
-try mkisofs -J -r -U -D -V "$2" -P "$3" -o "$2.iso" "$1"
+
+try test -n $SRCDIR
+try test -e $SRCDIR
+try test -n "$VOLNAME"
+
+try mkisofs -J -r -U -D -V "$VOLNAME" -P "$PUBNAME" -o "$VOLNAME.iso" $SRCDIR
