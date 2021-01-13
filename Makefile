@@ -1,4 +1,4 @@
-# ommitting .PHONY
+# omitting .PHONY
 PKG_NAME := dir2iso
 PKG_VERSION := 1.0.0
 PKG_ITERATION := 1
