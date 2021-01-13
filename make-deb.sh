@@ -1,6 +1,4 @@
 #!/bin/bash
-PKG_DESCRIPTION="Directory to ISO"
-PKG_DEPENDS="genisoimage"
 PKG_MAINTAINER="myself"
 PKG_VENDOR="myself"
 
@@ -20,7 +18,7 @@ try fpm -s dir -t deb -C workdir -a all \
 --version $PKG_VERSION \
 --iteration $PKG_ITERATION \
 --description "$PKG_DESCRIPTION" \
---depends $PKG_DEPENDS \
+--depends "$PKG_DEPENDS" \
 --maintainer "$PKG_MAINTAINER" \
 --vendor "$PKG_VENDOR" \
 --deb-no-default-config-files
