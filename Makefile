@@ -2,9 +2,8 @@
 PKG_NAME := dir2iso
 PKG_VERSION := 1.0.0
 PKG_ITERATION := 1
-PKG_FILE := $(PKG_NAME)_$(PKG_VERSION)-$(PKG_ITERATION)_all.deb
-PKG_DESCRIPTION := "Directory to ISO"
-PKG_DEPENDS := "genisoimage"
+PKG_FILE := $(PKG_NAME)_$(PKG_VERSION)-$(PKG_ITERATION)_amd64.deb
+PKG_DIR := packagedir
 
 $(PKG_FILE):
 	PKG_NAME=$(PKG_NAME) \
@@ -12,6 +11,7 @@ $(PKG_FILE):
 	PKG_ITERATION=$(PKG_ITERATION) \
 	PKG_DESCRIPTION=$(PKG_DESCRIPTION) \
 	PKG_DEPENDS=$(PKG_DEPENDS) \
+	PKG_DIR=$(PKG_DIR) \
 	bash make-deb.sh
 
 install:
@@ -21,4 +21,4 @@ uninstall:
 	dpkg -r $(PKG_NAME)
 
 clean:
-	rm -fr $(PKG_FILE) workdir
+	rm -fr *.deb *.tmp $(PKG_DIR)
