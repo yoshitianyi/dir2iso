@@ -1,5 +1,7 @@
-# dir2iso
-Ultra thin wrapper for mkisofs
+# backup-utils
+
+Ultra thin wrapper for mkisofs and rsync.
+Please refer to the code for now..
 
 This repository intends to be an example for everyone to easily create a debian package for his/her custom scripts.
 

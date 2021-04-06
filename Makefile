@@ -1,5 +1,5 @@
 # omitting .PHONY
-PKG_NAME := dir2iso
+PKG_NAME := backup-utils
 PKG_VERSION := 1.0.0
 PKG_ITERATION := 1
 PKG_FILE := $(PKG_NAME)_$(PKG_VERSION)-$(PKG_ITERATION)_amd64.deb
@@ -15,6 +15,7 @@ $(PKG_FILE):
 	bash make-deb.sh
 
 install:
+	dpkg -r dir2iso # this was the old package name
 	dpkg -i $(PKG_FILE)
 
 uninstall:
