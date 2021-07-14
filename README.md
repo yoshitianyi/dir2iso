@@ -1,7 +1,6 @@
 # backup-utils
 
 Ultra thin wrapper for mkisofs and rsync.
-Please refer to the code for now..
 
 This repository intends to be an example for everyone to easily create a debian package for his/her custom scripts.
 
@@ -10,7 +9,7 @@ This repository intends to be an example for everyone to easily create a debian 
 To build the package, you will need:
 
 * GNU Make 4.2+
-* Docker 20.10+
+* FPM 1.12+ -- please refer to the [document](https://fpm.readthedocs.io/en/latest/installing.html)
 
 Run `make` will generate the deb package.
 
@@ -18,8 +17,9 @@ Run `make` will generate the deb package.
 
 To install the package, you will need:
 
-* Ubuntu 18.04+
+* Ubuntu 18.04/20.04
 * genisoimage
+* rsync
 
 Run `sudo make install` will install the package.
 
