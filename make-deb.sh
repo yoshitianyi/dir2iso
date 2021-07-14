@@ -1,5 +1,5 @@
 #!/bin/bash
-PKG_DESCRIPTION="Directory to ISO"
+PKG_DESCRIPTION="Ultra thin wrapper for mkisofs and rsync."
 PKG_DEPENDS="genisoimage"
 PKG_MAINTAINER="yoshitianyi"
 
