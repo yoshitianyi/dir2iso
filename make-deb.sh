@@ -14,16 +14,13 @@ try cp -vf src/*.sh $PKG_DIR/usr/local/bin
 try chmod -v +x $PKG_DIR/usr/local/bin/*
 
 # Create the deb package from the dir
-try docker build -t fpm .
-try docker run -v $PWD:/WORKDIR fpm /bin/sh -x -c "
-    cd WORKDIR; ls -l; \
-    fpm -s dir -t deb -f -C $PKG_DIR \
-        --name $PKG_NAME \
-        --depends $PKG_DEPENDS \
-        --maintainer $PKG_MAINTAINER \
-        --version $PKG_VERSION \
-        --iteration $PKG_ITERATION \
-        --description \"$PKG_DESCRIPTION\" \
-        --deb-no-default-config-files
-    "
+try fpm -s dir -t deb -f -C $PKG_DIR \
+    --name $PKG_NAME \
+    --depends $PKG_DEPENDS \
+    --maintainer $PKG_MAINTAINER \
+    --version $PKG_VERSION \
+    --iteration $PKG_ITERATION \
+    --description "$PKG_DESCRIPTION" \
+    --deb-no-default-config-files
+
 exit $?
